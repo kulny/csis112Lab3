@@ -10,8 +10,7 @@ public:
 private:
 	// vars
 	double scoreArray[100];
-	int index = 0; // used to add values to array by iteration 
-	int index = 0; // used to keep track of how many grades added to array for avg purposes
+	int index = 0; // used to add values to array by iteration and used to keep track of how many grades added to array for avg purposes
 
 	// Operations and other
 	void SortArray();

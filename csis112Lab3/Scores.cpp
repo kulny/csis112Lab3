@@ -26,14 +26,24 @@ void Scores::AddValue(double val)
 	index++; // keeps track of location where next added value should go
 }
 
+void Scores::SortArray()
+{
+	// start with second item
+	// compare to first item
+	// if smaller, swap, else continue comparisons with all others
+	// placeholder var to hold swap val
+
+}
+
 double Scores::ComputeAvg()
 {
-	double avg;
+	double avg = 0;
 	for (int i = 0; i < 100; i++)
 	{
 		avg += scoreArray[i];
 	}
-	return avg / (index == 0 ? 100 : index); // divides by 100 if no values have been added (for example, all grades init to some val)
+	return avg / (index == 0 ? 100 : index); // divides by 100 if no values have been added (for example, all grades init to some val) 
+	// ? operator for brevity
 }
 
 void Scores::DisplayScores()

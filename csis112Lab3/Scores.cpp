@@ -2,7 +2,7 @@
 #include "Scores.h"
 #include <iostream>
 
-
+// general comments are in Scores.h, only implementation level comments will be here
 
 Scores::Scores()
 {
@@ -40,7 +40,7 @@ void Scores::DisplayScores()
 {
 	for (int i = 0; i <= index; i++)
 	{
-		std::cout << scoreArray[i];
+		std::cout << scoreArray[i]; // lists all scores
 	}
-	std::cout << ComputeAvg();
+	std::cout << ComputeAvg(); // lists score avg
 }

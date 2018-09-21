@@ -5,6 +5,7 @@ public:
 	Scores(); // init scores at 0
 	Scores(double val);	// init scores at val
 	void AddValue(double val); // add value to array
+	void DisplayScores(); // displays all scores and avg
 
 private:
 	// vars
@@ -14,10 +15,6 @@ private:
 
 	// Operations and other
 	void SortArray();
-	double ComputeAvg();
-	void DisplayScores();
-	// sort array in ascending order
-	// computer average of scores
-	// display scores 
+	double ComputeAvg(); // finds avg of all added scores
 };
 

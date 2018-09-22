@@ -12,45 +12,72 @@ Scores::Scores()
 	}
 }
 
-Scores::Scores(double val)
+Scores::Scores(int val)
 {
+	if (val < 0)
+	{
+		std::cout << "Error: scores cannot be negative." << std::endl;
+	}
 	for (int i = 0; i < 100; i++)
 	{
 		scoreArray[i] = val;
 	}
 }
 
-void Scores::AddValue(double val)
+void Scores::AddValue(int val)
 {
-	scoreArray[index] = val;
-	index++; // keeps track of location where next added value should go
+	if (val < 0)
+	{
+		std::cout << "Inputs must be positive." << std::endl;
+		return;
+	}
+	else
+	{
+		scoreArray[index] = val;
+		index++; // keeps track of location where next added value should go
+	}
 }
 
 void Scores::SortArray()
 {
-	// start with second item
-	// compare to first item
-	// if smaller, swap, else continue comparisons with all others
-	// placeholder var to hold swap val
+	for (int i = 1; i < arrayLength; i++)
+	{
+		int placeholder = scoreArray[i];
+		int indexCheck = i;
 
+		while (indexCheck > 0 && scoreArray[indexCheck - 1] > placeholder)
+		{
+			scoreArray[indexCheck] = scoreArray[indexCheck - 1];
+			indexCheck--;
+		}
+		scoreArray[indexCheck] = placeholder;
+	}
 }
 
 double Scores::ComputeAvg()
 {
 	double avg = 0;
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < arrayLength; i++)
 	{
 		avg += scoreArray[i];
 	}
-	return avg / (index == 0 ? 100 : index); // divides by 100 if no values have been added (for example, all grades init to some val) 
-	// ? operator for brevity
+	return avg / double(arrayLength); 
 }
 
 void Scores::DisplayScores()
 {
-	for (int i = 0; i <= index; i++)
+	SortArray();
+	std::cout << "The scores are: " << std::endl;
+
+	for (int i = 0; i < arrayLength; i++)
 	{
-		std::cout << scoreArray[i]; // lists all scores
+		std::cout << scoreArray[i] << std::endl; // lists all scores
 	}
-	std::cout << ComputeAvg(); // lists score avg
+	std::cout << "The average of the scores is: " << ComputeAvg() << std::endl; // lists score avg
 }
+
+void Scores::SetArrayLength(int length)
+{
+	arrayLength = length;
+}
+
